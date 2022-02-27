@@ -4,7 +4,7 @@
 int rev(char sen[]);
 int main()
 {
-    char sen[101];
+    char sen[51];
     printf("Enter the Sentence you want to reverse:");
     gets(sen);
     rev(sen);
@@ -13,13 +13,20 @@ int main()
 
 int rev(char sen[])
 {
-    int i,d=100;
-    for(i=99; i>=0; i--)
+    int i,d,x;
+    do
+    {
+        if(sen[i]=='\0')
+        d=i;
+        i++;
+    }while(sen[i]!='\0');
+    x=d;
+    for(i=d-1; i>=0; i--)
     {
         char word[21];
         if(sen[i]==' ')
         {
-            for(int j=i+1, k=0; i<d; i++, k++)
+            for(int j=i+1, k=0; j<d; i++, k++)
             {
                 word[k]=sen[i];
             }
@@ -27,9 +34,9 @@ int rev(char sen[])
             d=i;
         }
     }
-    for(i=0;i<d:i++)
+    for(i=0;i<x;i++)
     {
-        printf(sen[i]);
+        printf("%c",sen[i]);
     }
     return 1;
 }
